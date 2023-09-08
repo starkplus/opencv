@@ -1,0 +1,50 @@
+# import the cv2 library
+import cv2
+
+print("Package.Imported")
+
+img=cv2.imread("Resources/photo1 dog.jpg")
+cv2.imshow("Output",img)
+cv2.waitKey(0)
+
+#以下是展示导入视频
+
+import cv2
+
+cap=cv2.VideoCapture("Resources/QQ视频20230404230058.mp4")
+
+while True:
+   success,img=cap.read()
+   cv2.imshow("Video",img)
+   if cv2.waitKey(1) & 0xFF==ord('q'):
+     break
+
+
+
+#自创！视频变灰
+import cv2
+
+cap1=cv2.VideoCapture("Resources/waterfall.mp4")
+
+while True:
+    success,img=cap1.read()
+
+    imgG=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
+    cv2.imshow(" ",imgG)
+    if cv2.waitKey(1)&0xFF==ord(' '):
+        break
+
+
+
+#三个图片：原图，黑白，黑白且高斯噪声：
+import cv2
+
+img=cv2.imread("Resources/photo1 dog.jpg")
+
+imgG=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+imgB=cv2.GaussianBlur(imgG,(7,7),0)
+cv2.imshow("G",imgG)
+cv2.imshow("g",img)
+cv2.imshow("B",imgB)
+cv2.waitKey(0)
