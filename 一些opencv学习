@@ -21,7 +21,7 @@ while True:
 
 
 
-#自创！视频变灰
+#举一反三！视频变灰
 import cv2
 
 cap1=cv2.VideoCapture("Resources/waterfall.mp4")
@@ -47,4 +47,15 @@ imgB=cv2.GaussianBlur(imgG,(7,7),0)
 cv2.imshow("G",imgG)
 cv2.imshow("g",img)
 cv2.imshow("B",imgB)
+cv2.waitKey(0)
+
+#图片的放缩
+import cv2
+
+img=cv2.imread("Resources/shushu.jpg")
+
+imgR=cv2.resize(img,(202,200))
+
+cv2.imshow("1",img)
+cv2.imshow("2",imgR)
 cv2.waitKey(0)
