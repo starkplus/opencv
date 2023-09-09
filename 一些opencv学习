@@ -59,3 +59,15 @@ imgR=cv2.resize(img,(202,200))
 cv2.imshow("1",img)
 cv2.imshow("2",imgR)
 cv2.waitKey(0)
+
+#图片的裁剪
+
+import cv2
+
+img=cv2.imread("Resources/shushu.jpg")
+
+
+imgC=img[100:200,50:250]
+cv2.imshow("1",img)
+cv2.imshow("C",imgC)
+cv2.waitKey(0)
