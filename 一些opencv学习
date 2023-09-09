@@ -71,3 +71,15 @@ imgC=img[100:200,50:250]
 cv2.imshow("1",img)
 cv2.imshow("C",imgC)
 cv2.waitKey(0)
+#在板子上做图形
+import cv2
+import numpy as np
+kernel=np.zeros((512,512,3),np.uint8)
+print(kernel)
+
+cv2.line(kernel,(0,0),(kernel.shape[1],kernel.shape[0]),(0,255,0),3)
+cv2.rectangle(kernel,(0,0),(255,165),(255,0,0),3)
+cv2.circle(kernel,(400,50),30,(0,0,255),cv2.FILLED)
+cv2.putText(kernel,"dasha",(300,150),cv2.FONT_HERSHEY_COMPLEX,1.5,(255.155,155),1)
+cv2.imshow("blank",kernel)
+cv2.waitKey(0)
