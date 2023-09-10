@@ -83,3 +83,41 @@ cv2.circle(kernel,(400,50),30,(0,0,255),cv2.FILLED)
 cv2.putText(kernel,"dasha",(300,150),cv2.FONT_HERSHEY_COMPLEX,1.5,(255.155,155),1)
 cv2.imshow("blank",kernel)
 cv2.waitKey(0)
+#如何显示图片上像素所在点的坐标
+import cv2
+import pandas as pd
+
+
+# 导入图片
+img = cv2.imread("Resources/shushu.jpg")
+# 建立空列表存放像素坐标
+a =[]
+b = []
+
+
+def on_EVENT_LBUTTONDOWN(event, x, y, flags, param):
+    # 点击鼠标左键
+    if event == cv2.EVENT_LBUTTONDOWN:
+        xy = "%d,%d" % (x, y)
+        a.append(x)
+        b.append(y)
+        cv2.circle(img, (x, y), 1, (255, 0, 0), thickness=-1)
+        cv2.putText(img, xy, (x, y), cv2.FONT_HERSHEY_PLAIN,
+                    1.0, (0, 0, 0), thickness=1)
+        cv2.imshow("image", img)
+
+
+cv2.namedWindow("image")
+cv2.setMouseCallback("image", on_EVENT_LBUTTONDOWN)
+cv2.imshow("image", img)
+cv2.waitKey(0)
+
+# print(a[0],b[0])
+
+# 保存数据
+data = [a,b]
+data = pd.DataFrame(data, index=['h', 'l'] )
+data.to_csv('C:/Users/Shinelon/Desktop/sj.csv')
+
+
+# if __name__ == '__main__':
